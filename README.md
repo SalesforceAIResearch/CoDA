@@ -18,7 +18,7 @@
 - [Citation 📚](#citation-)
 
 ## Overview 🎯
-CoDA is Salesforce AI Research's open diffusion language model. This repo contains a unified training pipeline from pre-training to post-training, evaluation harnesses, and a simple Fast-API based serving backend. The [technical report 📄](Text_Diffusion_Model_Report.pdf) formalizes the noise schedule, connects the objective to masked autoregressive training, and documents empirical gains. An official arXiv preprint will be posted soon [[arXiv 🔗]](#).
+CoDA is Salesforce AI Research's open diffusion language model. This repo contains a unified training pipeline from pre-training to post-training, evaluation harnesses, and a simple Fast-API based serving backend.
 >Note: This repository is provided for research purposes only. Data release is subjected to internal regulations.
 
 ## Repository Map 🗺️
