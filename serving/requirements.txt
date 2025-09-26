@@ -1,0 +1,22 @@
+# Unified requirements for Fast-dLLM (root + fast-api)
+
+# Core ML stack
+torch>=2.0.0
+transformers==4.49.0
+accelerate==0.34.2
+
+# API server
+fastapi>=0.100.0
+uvicorn[standard]>=0.23.0
+pydantic==2.10.6
+pydantic-settings>=2.0.0
+requests>=2.25.0
+python-multipart>=0.0.5
+
+# Other dependencies
+antlr4-python3-runtime==4.11
+sympy
+lm_eval==0.4.8
+gradio
+math_verify
+hf_xet

@@ -1,0 +1,92 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "torchprime"
+version = "0.1.0"
+description = "torchprime, reference model implementations for PyTorch on TPU/GPU using torch_xla and torchax"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [
+    { name = "PyTorch/XLA team", email = "pytorchxla-dev@google.com" },
+]
+dependencies = [
+    "transformers==4.52.1",
+    "accelerate==1.10.0",
+    "fire==0.7.0",
+    "datasets==3.0.0",
+    "hydra-core==1.3.0",
+    "optax==0.2.4",
+    "tensorboard==2.19.0",
+    "tensorboard-plugin-profile==2.19.0",
+    "protobuf==4.25.8",
+    "dataclasses-json==0.6.7",
+    "benchmark-db-writer @ git+https://github.com/AI-Hypercomputer/aotc.git@2ff16e670df20b497ddaf1f86920dbb5dd9f0c8f#subdirectory=src/aotc/benchmark_db_writer",
+    "dacite==1.9.2",
+    "click~=8.1.8",
+    "google-cloud-storage==2.19.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff~=0.11.4",
+    "pytest~=8.3.4",
+    "pytest-forked~=1.6.0",
+    "toml~=0.10.2",
+    "dataclasses-json~=0.6.7",
+    "watchdog~=6.0.0",
+    "pathspec~=0.12.1",
+    "pyyaml~=6.0.2",
+    "rich~=14.0.0",
+    "scipy~=1.15.2",
+    "torcheval~=0.0.7",
+    "tomli~=2.2.1",
+    "xpk@git+https://github.com/AI-Hypercomputer/xpk@e52a5f4cd56ad50aeab06d55100cf4d3abc4c2c8"
+]
+
+[project.scripts]
+tp = "torchprime.launcher.cli:cli"
+
+[tool.torchprime]
+torch_xla_version = "20250709"
+
+[tool.setuptools.packages.find]
+where = [""]
+include = ["torchprime*"]
+exclude = ["torchprime.*.tests.*"]
+
+[tool.setuptools.package-data]
+"torchprime" = ["py.typed"]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+
+# `--forked` ensures torchax and torch_xla tests don't conflict.
+# `--ignore local_transformers` ignores any local Hugging Face transformers checkout
+addopts = "--forked --ignore local_transformers"
+
+[tool.ruff]
+indent-width = 2
+target-version = "py310"
+exclude = ["local_transformers"]
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+]
+ignore = [
+    "E501",  # Line too long. Some copied GPU code has lengthy comments.
+]

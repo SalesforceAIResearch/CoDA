@@ -1,0 +1,11 @@
+defaults:
+  - _self_  # refers to this config file
+
+block_size: 8192
+cache_dir: /tmp/
+# Huggingface dataset name, will OVERRIDE gcs_dataset_names if provided
+dataset_name: wikitext
+dataset_config_name: wikitext-2-raw-v1
+# GCS dataset names and mixing weights
+gcs_dataset_names: null
+weights: null

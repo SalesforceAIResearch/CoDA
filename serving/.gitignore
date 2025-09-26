@@ -1,0 +1,11 @@
+.vscode/
+__pycache__/
+*.py[cod]
+*$py.class
+llada/output/
+llada/evals_results/
+dream/evals_results/
+.DS_Store
+**/.DS_Store
+.venv/
+.cursor/

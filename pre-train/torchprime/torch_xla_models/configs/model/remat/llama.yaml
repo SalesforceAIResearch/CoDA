@@ -1,0 +1,6 @@
+activation_checkpoint_layers:
+ - LlamaDecoderLayer
+
+# Refer to https://github.com/pytorch/xla/issues/6379 for backward optimization barrier info.
+optimization_barrier_layers:
+ - LlamaDecoderLayer

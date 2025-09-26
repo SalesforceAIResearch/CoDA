@@ -1,0 +1,16 @@
+# The default config file. You may override configs with `key=value` arguments on the CLI
+# according to https://hydra.cc/docs/advanced/override_grammar/basic/.
+
+global_batch_size: 64
+model_type: 8B
+lr: 5.e-5
+tp: 4
+seqlen: 2048
+model_impl: scan
+use_custom_mesh: False
+use_custom_offload: True
+internal_override_layers: -1
+
+# This might be overwritten when using tp run to launch the run using XPK
+profile_dir: profile
+unroll_layers: 1

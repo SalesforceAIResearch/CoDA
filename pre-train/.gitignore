@@ -1,0 +1,87 @@
+# Ignore compiled Python files
+*.pyc
+
+# Ignore virtual environment directories
+venv/
+env/
+.venv/
+
+# Ignore IDE-specific files and directories
+.vscode/
+.idea/
+
+# Ignore log files
+*.log
+
+# Ignore cache directories
+__pycache__/
+.cache/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore package manager directories
+node_modules/
+pip-wheel-metadata/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore data files (customize as needed)
+*.csv
+*.pkl
+
+# Ignore build and distribution directories
+build/
+dist/
+local_dist/
+*.egg-info/
+
+# Ignore environment configuration files
+.env
+
+# Ignore any local configuration files
+config.local.py
+
+# Ignore backup files
+*.bak
+*~
+
+# Ignore coverage reports
+.coverage
+htmlcov/
+
+# Ignore pytest cache
+.pytest_cache/
+
+# Ignore ruff cache
+.ruff_cache/
+
+# Ignore local transformers repo
+**/transformers/
+**/local_transformers/
+
+# Ignore profiler outputs
+/profile/
+
+# Ignore trained artifacts
+/outputs/
+
+# Direnv config
+.envrc
+
+# torchprime config
+.config
+
+# Google cloud credentials generated during CI
+gha-creds-*.json
+wandb/
+checkpoints/
+
+.env
+*.ipynb
+
+evaluations/
+
+gpu_venv

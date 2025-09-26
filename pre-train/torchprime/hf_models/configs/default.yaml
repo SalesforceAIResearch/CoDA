@@ -1,0 +1,39 @@
+# note: the sharding annotation is currently hard coded in pytorch-tpu/transformers
+defaults:
+  - _self_
+
+# extra env variables you want to pass to the training script
+env:
+  - XLA_USE_SPMD: 1
+  - PROFILE_DURATION_MS: 100000
+
+profile_dir: "profile"
+
+# args for the hugging face run_clm.py training script
+train_script:
+  path: "local_transformers/examples/pytorch/language-modeling/run_clm.py"
+  args:
+    dataset_name: "wikitext"
+    dataset_config_name: "wikitext-103-raw-v1"
+
+    # If minibatch is False, this should be set to the global batch size.
+    # If minibatch is True, this should be set to the per host batch size.
+    per_device_train_batch_size: 256
+
+    do_train: true
+    output_dir: "test-clm"
+    overwrite_output_dir: true
+    config_name: "torchprime/hf_models/configs/model/llama-3/config_8b.json"
+    cache_dir: "cache"
+    tokenizer_name: "meta-llama/Meta-Llama-3-8B"
+    block_size: 8192
+    optim: "adafactor"
+    save_strategy: "no"
+    logging_strategy: "no"
+    fsdp: "full_shard"
+    fsdp_config: "torchprime/hf_models/configs/model/llama-3/fsdp_config.json"
+    torch_dtype: "bfloat16"
+    dataloader_drop_last: true
+    flash_attention: true
+    max_steps: 50
+    seed: 42

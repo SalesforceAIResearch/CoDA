@@ -1,0 +1,31 @@
+# 2D (FSDP + TP) sharding configuration for Llama models.
+
+# Weights
+
+# TODO(https://github.com/AI-Hypercomputer/torchprime/issues/114): This
+# cannot be `[tensor, fsdp]`, or the gradients will sometimes become NaN.
+model.embed_tokens.weight: [fsdp, tensor]
+
+model.layers.*.self_attn.q_proj.weight: [tensor, fsdp]
+model.layers.*.self_attn.k_proj.weight: [tensor, fsdp]
+model.layers.*.self_attn.v_proj.weight: [tensor, fsdp]
+model.layers.*.self_attn.o_proj.weight: [fsdp, tensor]
+model.layers.*.mlp.gate_proj.weight: [tensor, fsdp]
+model.layers.*.mlp.up_proj.weight: [tensor, fsdp]
+model.layers.*.mlp.down_proj.weight: [fsdp, tensor]
+model.layers.*.input_layernorm.weight: [fsdp]
+model.layers.*.post_attention_layernorm.weight: [fsdp]
+model.norm.weight: [fsdp]
+lm_head.weight: [tensor, fsdp]
+
+# Activations
+model.layers.*.self_attn.q_proj: [fsdp, null, tensor]
+model.layers.*.self_attn.k_proj: [fsdp, null, tensor]
+model.layers.*.self_attn.v_proj: [fsdp, null, tensor]
+model.layers.*.self_attn.o_proj: [fsdp, null, tensor]
+model.layers.*.input_layernorm: [fsdp, null, tensor]
+model.layers.*.post_attention_layernorm: [fsdp, null, tensor]
+model.layers.*.mlp.up_proj: [fsdp, null, tensor]
+model.layers.*.mlp.down_proj: [fsdp, null, tensor]
+model.layers.*.mlp.gate_proj: [fsdp, null, tensor]
+model.layers.*: [fsdp, null, tensor]

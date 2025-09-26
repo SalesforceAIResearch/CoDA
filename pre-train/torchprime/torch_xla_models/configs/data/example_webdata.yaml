@@ -1,0 +1,11 @@
+defaults:
+  - _self_  # refers to this config file
+
+block_size: 8192
+cache_dir: null
+use_webdataset: true
+dataset_name: gs://<bucket_name>/data/<example_webdataset>
+samples_per_file: 10000
+dataset_config_name: null
+gcs_dataset_names: null
+weights: null

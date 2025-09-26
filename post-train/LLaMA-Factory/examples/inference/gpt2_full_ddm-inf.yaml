@@ -1,0 +1,28 @@
+### model
+model_name_or_path: gpt2-medium
+checkpoint_dir: output/gpt2-ddm/checkpoint-160000/
+
+### method
+stage: ddm
+shift: true
+do_predict: true
+finetuning_type: full
+
+### dataset
+dataset: c4_demo
+template: empty
+packing: true
+cutoff_len: 1024
+streaming: false
+overwrite_cache: true
+preprocessing_num_workers: 16
+
+### output
+output_dir: output/gpt2-ddm/predict
+overwrite_output_dir: true
+
+### eval
+val_size: 64
+per_device_eval_batch_size: 8
+logits_temp: 0.98
+diffusion_steps: 1024

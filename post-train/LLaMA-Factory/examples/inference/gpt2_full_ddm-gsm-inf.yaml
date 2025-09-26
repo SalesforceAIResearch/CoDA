@@ -1,0 +1,29 @@
+### model
+model_name_or_path: gpt2-medium
+checkpoint_dir: output/gpt2-ddm-gsm-v2/
+
+### method
+stage: ddm-sft
+shift: true
+do_predict: true
+finetuning_type: full
+
+### dataset
+dataset: gsm_test
+eval_dataset: gsm_test
+template: empty
+packing: true
+cutoff_len: 256
+streaming: false
+overwrite_cache: true
+preprocessing_num_workers: 16
+
+### output
+output_dir: output/gpt2-ddm-gsm-v2/predict
+overwrite_output_dir: true
+
+### eval
+val_size: 0
+per_device_eval_batch_size: 32
+logits_temp: 0.98
+diffusion_steps: 64

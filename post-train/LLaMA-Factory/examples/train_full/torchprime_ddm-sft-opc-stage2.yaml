@@ -1,0 +1,57 @@
+### model
+model_name_or_path: /path/to/stage1_checkpoint
+torchprime_config: examples/train_full/model_config.yaml
+update_tokenizer: true
+print_param_status: true
+use_fast_tokenizer: true
+
+### method
+stage: ddm-sft
+do_train: true
+finetuning_type: full
+deepspeed: examples/deepspeed/ds_z2_config.json
+
+### dataset
+dataset: [opencoder_educational_instruct,opencoder_evol_instruct,opencoder_package_instruct,opencoder_mceval_instruct]
+template: alpaca
+cutoff_len: 1024
+streaming: false
+overwrite_cache: false
+preprocessing_num_workers: 84
+
+### output
+output_dir: "./output/torchprime_ddm-sft-opc-stage2"
+logging_steps: 1
+save_steps: 2000
+save_total_limit: 50
+plot_loss: false
+overwrite_output_dir: true
+
+### train
+do_eval: false
+per_device_train_batch_size: 22
+gradient_accumulation_steps: 1
+learning_rate: 2.0e-5
+num_train_epochs: 10.0
+lr_scheduler_type: cosine
+# warmup_steps: 500
+warmup_ratio: 0.1
+bf16: true
+ddp_timeout: 180000000
+anneal_steps: 1
+progress_src_mask: false
+progress_src_mask_ratio: 0
+shift: true
+remove_unused_columns: false
+gradient_checkpointing: false
+dataloader_pin_memory: false
+
+### eval
+val_size: 1
+per_device_eval_batch_size: 64
+eval_strategy: steps
+eval_steps: 500
+
+### wandb
+report_to: wandb
+run_name: torchprime-ddm-opencoder-stage2

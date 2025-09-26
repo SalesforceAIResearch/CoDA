@@ -1,0 +1,6 @@
+defaults:
+ - llama-scan
+ - _self_
+
+offload_tensors:
+ - decoder_input

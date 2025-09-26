@@ -1,0 +1,6 @@
+defaults:
+ - llama
+ - _self_
+
+# Compile the sequence of decoder layers at `model.layers` using scan.
+scan_layers: 'model.layers'

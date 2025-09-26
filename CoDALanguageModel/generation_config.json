@@ -1,0 +1,12 @@
+{
+  "alg": "original",
+  "alg_temp": 0.2,
+  "diffusion_steps": 10,
+  "eps": 0.001,
+  "mask_token_id": 151669,
+  "max_tokens": 256,
+  "output_history": false,
+  "top_k": null,
+  "top_p": null,
+  "transformers_version": "4.47.1"
+}

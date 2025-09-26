@@ -1,0 +1,18 @@
+# Weights
+model.embed_tokens.weight: ['fsdp', null]
+model.layers.*.self_attn.q_proj.weight: ['fsdp', null]
+model.layers.*.self_attn.k_proj.weight: [null, 'fsdp']
+model.layers.*.self_attn.v_proj.weight: [null, 'fsdp']
+model.layers.*.self_attn.o_proj.weight: ['fsdp', null]
+model.layers.*.block_sparse_moe.gate.weight: [null, 'fsdp']
+model.layers.*.block_sparse_moe.experts.w1: [null, null, 'fsdp']
+model.layers.*.block_sparse_moe.experts.w2: [null, 'fsdp', null]
+model.layers.*.block_sparse_moe.experts.w3: [null, null, 'fsdp']
+model.layers.*.input_layernorm.weight: ['fsdp']
+model.layers.*.post_attention_layernorm.weight: ['fsdp']
+model.norm.weight: ['fsdp']
+lm_head.weight: ['fsdp', null]
+
+# Activations
+model.layers.*[0]: [fsdp, null, null]  # Shard the first output of the decoder layer
+lm_head: [fsdp, null, null]

@@ -1,0 +1,46 @@
+### model
+model_name_or_path: output/llama2-ddm
+print_param_status: true
+
+### method
+stage: ddm-sft
+do_train: true
+finetuning_type: lora
+lora_target: all
+additional_target: embed_tokens
+lora_rank: 16
+
+### dataset
+dataset: gsm
+template: empty
+cutoff_len: 256
+streaming: false
+overwrite_cache: true
+preprocessing_num_workers: 16
+
+### output
+output_dir: output/llama2-ddm-gsm-v3/
+logging_steps: 10
+save_steps: 2000
+save_total_limit: 4
+plot_loss: false
+overwrite_output_dir: true
+
+### train
+per_device_train_batch_size: 128
+gradient_accumulation_steps: 1
+learning_rate: 1.0e-4
+num_train_epochs: 200.0
+lr_scheduler_type: cosine
+warmup_steps: 2000
+bf16: true
+ddp_timeout: 180000000
+anneal_steps: 1
+shift: true
+remove_unused_columns: false
+
+### eval
+val_size: 256
+per_device_eval_batch_size: 128
+eval_strategy: steps
+eval_steps: 200
