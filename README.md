@@ -30,6 +30,7 @@ CoDA is Salesforce AI Research's open diffusion language model. This repo contai
 | `pre-train/` | TPU-based pre-training pipeline|
 | `serving/` | Serving stack |
 | `run_sft.sh` | Launcher coupling pre-training checkpoints with the post-training diffusion trainer. |
+| `save_hf_model.py` | Util function to convert checkpoint in Huggingface model class|
 
 
 ## Training Quickstart 🚀
