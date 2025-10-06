@@ -6,7 +6,7 @@
 
 > End-to-end diffusion language modeling across TPU pre-training, GPU fine-tuning, evaluation, and serving.
 
-[![Paper](https://img.shields.io/badge/Technical_Report-📄-lightgrey?logo=arxiv&logoColor=red)](technical_report.pdf) [![Model](https://img.shields.io/badge/Model-Coming_Soon-ff69b4?logo=huggingface&logoColor=yellow)](#)
+[![Paper](https://img.shields.io/badge/Technical_Report-📄-lightgrey?logo=arxiv&logoColor=red)](technical_report.pdf) [![Model](https://img.shields.io/badge/Model-CoDA_Instruct-ff69b4?logo=huggingface&logoColor=yellow)](https://huggingface.co/Salesforce/CoDA-v0-Instruct)
 
 ---
 
