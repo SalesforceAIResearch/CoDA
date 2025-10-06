@@ -1,8 +1,12 @@
 # CoDA: Coding LM via Diffusion Adaptation
 
+<p align="center">
+  <img src="CoDA-logo.png" alt="CoDA Logo"/>
+</p>
+
 > End-to-end diffusion language modeling across TPU pre-training, GPU fine-tuning, evaluation, and serving.
 
-[![Paper](https://img.shields.io/badge/Technical_Report-📄-lightgrey?logo=arxiv&logoColor=red)](Text_Diffusion_Model_Report.pdf) [![Model](https://img.shields.io/badge/Model-Coming_Soon-ff69b4?logo=huggingface&logoColor=yellow)](#)
+[![Paper](https://img.shields.io/badge/Technical_Report-📄-lightgrey?logo=arxiv&logoColor=red)](technical_report.pdf) [![Model](https://img.shields.io/badge/Model-Coming_Soon-ff69b4?logo=huggingface&logoColor=yellow)](#)
 
 ---
 
@@ -127,5 +131,10 @@ bash serving/fast-api/start_server.sh
 
 ## Citation 📚
 ```
-Coming soon
+@misc{coda2025,
+  title={CoDA: Coding LM via Diffusion Adaptation},
+  author={Chen, Haolin and Wang, Shiyu and Qin, Can and Pang, Bo and Liu, Zuxin and Qiu, Jielin and Zhang, Jianguo and Zhou, Yingbo and Chen, Zeyuan and Xu, Ran and Heinecke, Shelby and Savarese, Silvio and Xiong, Caiming and Wang, Huan and Yao, Weiran},
+  year={2025},
+  publisher={Salesforce AI Research}
+}
 ```
